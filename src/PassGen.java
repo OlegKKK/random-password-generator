@@ -46,6 +46,9 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         includeCapsCB.addItemListener(this);
         includeLowerCaseCB.addItemListener(this);
         includeNumbersCB.addItemListener(this);
+        includeCaps = true;
+        includeLowerCase = true;
+        includeNumbers = true;
 
         optionsPanel.add(includeCapsCB);
         optionsPanel.add(includeLowerCaseCB);
@@ -95,6 +98,11 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         } else if (source.equals(includeNumbersCB)) {
             includeNumbers = !includeNumbers;
             System.out.println("" + includeNumbers);
+        }
+        if (!includeCaps&&!includeNumbers&&!includeLowerCase) {
+            generatePass.setEnabled(false);
+        }else{
+            generatePass.setEnabled(true);
         }
     }
 }

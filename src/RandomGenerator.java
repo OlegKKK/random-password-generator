@@ -5,6 +5,7 @@ public class RandomGenerator {
     public static Random intGenerator = new Random();
 
     public static String nextWord(int length, boolean includeCaps, boolean includelowerCase, boolean includeNumbers) {
+
         String word = "";
 
         ArrayList<String> charTypes = new ArrayList();
@@ -28,13 +29,18 @@ public class RandomGenerator {
             //nextInt(y-x) + x;
             switch (charType2){
                 case 'c':
-                word+=(char) intGenerator.nextInt(90-65) + 65;
+                    int char1 = intGenerator.nextInt(90-65) + 65;
+                    char char2 = (char) char1;
+                    word+=char2;
                     break;
                 case 'l':
-                word+=(char) intGenerator.nextInt(122-97) + 97;
-                    break;
+                    int char3 = intGenerator.nextInt(122-97) + 97;
+                    char char4 = (char) char3;
+                    word+=char4;
                 case 'n':
-                word+=(char) intGenerator.nextInt(48-57) + 57;
+                    int char5 = intGenerator.nextInt(57-48) + 48;
+                    char char6 = (char) char5;
+                    word+=char6;
                     break;
             }
         }
