@@ -12,6 +12,7 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
 
     public JButton generatePass;
     public JButton shuffleOutput;
+    shuffleOutput.addActionListener(new ActionListener()){};
     public JButton copyOutputToClipboard;
 
     public JCheckBox includeCapsCB;
@@ -36,6 +37,15 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         generatePass.addActionListener(this);
 
         shuffleOutput = new JButton("Shuffle Output");
+        shuffleOutput.addActionListener(new ActionListener()){
+            @Override
+            public void actionPerformd(ActionEvent e) {
+                String txt = shuffleOutput.getText();
+                shuffleOutput.setText(PassShuffler.shuffler(txt));
+            }
+
+        });
+
         copyOutputToClipboard = new JButton("Copy To Clipboard");
 
         JPanel optionsPanel = new JPanel(new FlowLayout());
@@ -77,14 +87,14 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int length;
-
         try{
-            length = Integer.parseInt(lengthOfPass.getText());
+            int length = Integer.parseInt(lengthOfPass.getText())-1;
+            if (!lengthOfPass.getText().equals("")&&length>0) {
+                textOutput.setText(RandomGenerator.nextWord(length,includeCaps,includeLowerCase,includeNumbers));
+            }
         } catch (NumberFormatException nuEx) {
-            length = 8;
+
         }
-        textOutput.setText(RandomGenerator.nextWord(length,includeCaps,includeLowerCase,includeNumbers));
     }
     public void itemStateChanged(ItemEvent e) {
         Object source = e.getItemSelectable();
