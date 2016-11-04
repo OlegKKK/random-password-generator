@@ -20,7 +20,7 @@ public class PassGen extends JFrame {
 
         textOutput = new JTextField(30);
         textOutput.setEnabled(false);
-        lengthOfPass = new JTextField();
+        lengthOfPass = new JTextField("8",2);
 
         generatePass = new JButton("Generate Password");
         shuffleOutput = new JButton("Shuffle Output");
@@ -35,6 +35,8 @@ public class PassGen extends JFrame {
         optionsPanel.add(includeCaps);
         optionsPanel.add(includeLowerCase);
         optionsPanel.add(includeNumbers);
+        optionsPanel.add(new JLabel("Length in Characters: "));
+        optionsPanel.add(lengthOfPass);
 
         setLayout(new BorderLayout(5, 5));
 
@@ -51,6 +53,6 @@ public class PassGen extends JFrame {
     }
 
     public static void main(String[] args) {
-        new PassGen();
+
     }
 }
