@@ -12,7 +12,6 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
 
     public JButton generatePass;
     public JButton shuffleOutput;
-    shuffleOutput.addActionListener(new ActionListener()){};
     public JButton copyOutputToClipboard;
 
     public JCheckBox includeCapsCB;
@@ -29,7 +28,6 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
 
         textOutput = new JTextField(30);
         textOutput.addActionListener(this);
-        textOutput.setEnabled(false);
         lengthOfPass = new JTextField("8",2);
         lengthOfPass.addActionListener(this);
 
@@ -37,13 +35,12 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         generatePass.addActionListener(this);
 
         shuffleOutput = new JButton("Shuffle Output");
-        shuffleOutput.addActionListener(new ActionListener()){
+        shuffleOutput.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformd(ActionEvent e) {
-                String txt = shuffleOutput.getText();
-                shuffleOutput.setText(PassShuffler.shuffler(txt));
+            public void actionPerformed(ActionEvent e) {
+                String txt = textOutput.getText();
+                textOutput.setText(PassShuffler.shuffler(txt));
             }
-
         });
 
         copyOutputToClipboard = new JButton("Copy To Clipboard");
