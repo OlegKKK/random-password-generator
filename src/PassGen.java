@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -44,6 +46,15 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         });
 
         copyOutputToClipboard = new JButton("Copy To Clipboard");
+        copyOutputToClipboard.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String theString = textOutput.getText();
+                StringSelection selection = new StringSelection(theString);
+                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                clipboard.setContents(selection, selection);
+            }
+        });
 
         JPanel optionsPanel = new JPanel(new FlowLayout());
 
