@@ -43,6 +43,9 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         includeCapsCB = new JCheckBox("Include Caps", true);
         includeLowerCaseCB = new JCheckBox("Include Lower Case Characters", true);
         includeNumbersCB = new JCheckBox("Include Numbers", true);
+        includeCapsCB.addItemListener(this);
+        includeLowerCaseCB.addItemListener(this);
+        includeNumbersCB.addItemListener(this);
 
         optionsPanel.add(includeCapsCB);
         optionsPanel.add(includeLowerCaseCB);
