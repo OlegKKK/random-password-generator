@@ -8,12 +8,12 @@ public class PassShuffler {
         char[] outputArray = new char[length];
         char[] inputToArray = input.toCharArray();
         boolean[] isTakenArray = new boolean[length];
-        int lenghtPlusOne = length++;
-        for (int i=0; i < lenghtPlusOne; i++) {
+        int lenghtPlus = length++;
+        for (int i=0; i < lenghtPlus; i++) {
                 isTakenArray[i] = false;
             }
 
-            for (int i=0; i < lenghtPlusOne; i++) {
+            for (int i=0; i < lenghtPlus; i++) {
                 char character = inputToArray[i];
                 int place = gen.nextInt(length - 1);
                 while (true) {
