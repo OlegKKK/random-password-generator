@@ -11,15 +11,12 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
 
     public JTextField textOutput;
     public JTextField lengthOfPass;
-
     public JButton generatePass;
     public JButton shuffleOutput;
     public JButton copyOutputToClipboard;
-
     public JCheckBox includeCapsCB;
     public JCheckBox includeLowerCaseCB;
     public JCheckBox includeNumbersCB;
-
     public boolean includeCaps;
     public boolean includeLowerCase;
     public boolean includeNumbers;
