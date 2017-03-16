@@ -8,7 +8,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class PassGen extends JFrame implements ActionListener, ItemListener{
-
     public JTextField textOutput;
     public JTextField lengthOfPass;
     public JButton generatePass;
@@ -20,8 +19,6 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
     public boolean includeCaps;
     public boolean includeLowerCase;
     public boolean includeNumbers;
-
-
     public PassGen() {
         super("Random Password Generator");
 
@@ -41,7 +38,6 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
                 textOutput.setText(PassShuffler.shuffler(txt));
             }
         });
-
         copyOutputToClipboard = new JButton("Copy To Clipboard");
         copyOutputToClipboard.addActionListener(new ActionListener() {
             @Override
@@ -54,7 +50,6 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         });
 
         JPanel optionsPanel = new JPanel(new FlowLayout());
-
         includeCapsCB = new JCheckBox("Include Caps", true);
         includeLowerCaseCB = new JCheckBox("Include Lower Case Characters", true);
         includeNumbersCB = new JCheckBox("Include Numbers", true);
@@ -64,21 +59,17 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         includeCaps = true;
         includeLowerCase = true;
         includeNumbers = true;
-
         optionsPanel.add(includeCapsCB);
         optionsPanel.add(includeLowerCaseCB);
         optionsPanel.add(includeNumbersCB);
         optionsPanel.add(new JLabel("Length in Characters: "));
         optionsPanel.add(lengthOfPass);
-
         setLayout(new BorderLayout(5, 5));
-
         add(textOutput, BorderLayout.PAGE_START);
         add(shuffleOutput, BorderLayout.WEST);
         add(generatePass, BorderLayout.CENTER);
         add(copyOutputToClipboard, BorderLayout.EAST);
         add(optionsPanel, BorderLayout.PAGE_END);
-
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
