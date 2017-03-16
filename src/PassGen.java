@@ -89,7 +89,6 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
         new PassGen();
 
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
