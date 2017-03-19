@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
 public class PassGen extends JFrame implements ActionListener, ItemListener{
     public JTextField textOutput;
     public JTextField lengthOfPass;
