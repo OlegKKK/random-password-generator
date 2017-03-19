@@ -21,15 +21,12 @@ public class PassGen extends JFrame implements ActionListener, ItemListener{
     public boolean includeNumbers;
     public PassGen() {
         super("Random Password Generator");
-
         textOutput = new JTextField(30);
         textOutput.addActionListener(this);
         lengthOfPass = new JTextField("8",2);
         lengthOfPass.addActionListener(this);
-
         generatePass = new JButton("Generate Password");
         generatePass.addActionListener(this);
-
         shuffleOutput = new JButton("Shuffle Output");
         shuffleOutput.addActionListener(new ActionListener(){
             @Override
